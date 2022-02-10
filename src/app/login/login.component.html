@@ -1,0 +1,27 @@
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="">user name</label>
+    <div class="form-control">
+      <input type="text" name="usernamex" [(ngModel)]="user.username" #username="ngModel" required minlength="5">
+      <span class="text-danger" [hidden]="username.valid || username.pristine"> error</span>
+      <span class="text-danger" [hidden]="!username?.errors?.['required']"> required</span>
+      <span class="text-danger" [hidden]="!username?.errors?.['minlength']"> currente length is
+        {{username?.errors?.['minlength']}}</span>
+      {{username.errors|json}}
+
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">password</label>
+    <div class="form-control">
+      <input type="password" name="passwordx" [(ngModel)]="user.password" #password="ngModel" required>
+      <span class="text-danger" [hidden]="password.valid || password.pristine"> error</span>
+
+    </div>
+  </div>
+  <input type="submit" value="login" [disabled]="loginForm.invalid">
+  {{user|json}}-{{loginForm.value|json}}
+  {{loginForm.status}}
+</form>
+<app-reform></app-reform>

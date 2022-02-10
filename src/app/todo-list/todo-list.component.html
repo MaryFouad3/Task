@@ -1,0 +1,13 @@
+<br>
+<input type="text" #username placeholder="Enter new todo">
+<input type="button" value="Add" (click)="adduser(username.value)">
+<br><br>
+<span>Todo List</span>
+<input type="text" placeholder="Filter" #filter (input)="filter1(filter.value)">
+<table class="table table-striped">
+<tr  value="user" *ngFor="let user of users2">
+  {{user}}
+  <input type="button" value="complete" (click)="remove1(username.value)">
+</tr>
+</table>
+

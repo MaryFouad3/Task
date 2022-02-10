@@ -1,0 +1,22 @@
+
+<div class="float-left" style="width: 80%; display: inline-block; clear: right;">
+<p>home works!</p>
+<h1>NgFor (grouped)</h1>
+<h1>NgSwitch</h1>
+<ul>
+  <li *ngFor="let item of peopleByCountry" [ngSwitch]="item.country">
+<p *ngSwitchCase="'UK'" class="text-danger">{{item.country}}</p>
+<p *ngSwitchCase="'US'" class="text-primary">{{item.country}}</p>
+<p *ngSwitchCase="'MARS'" class="text-success">{{item.country}}</p>
+    <ul>
+      <li *ngFor="let person of item.people">
+        {{person.name}}
+      </li>
+    </ul>
+
+  </li>
+</ul>
+</div>
+
+<app-aside></app-aside>
+

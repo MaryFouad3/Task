@@ -1,0 +1,29 @@
+<form [formGroup]="product">
+  <div class="form-group">
+    <label for="">title</label>
+    <div class="form-control">
+      <input type="text" name="" id="" formControlName="title">
+      <span class="text-danger" [hidden]="title.valid || title.pristine"> error</span>
+      <span class="text-danger" *ngIf="title.errors?.['required']"> required</span>
+      <span class="text-danger" *ngIf="title?.errors?.['minlength']"> currente length is
+        {{title?.errors?.['minlength']['actualLength']}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">description</label>
+    <div class="form-control">
+      <input type="text" name="" id="" formControlName="description">
+      <!-- <span class="text-danger" *ngIf="description.errors?.['required']"> required</span> -->
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">image</label>
+    <div class="form-control">
+      <input type="text" name="" id="" formControlName="image">
+      <!-- <span class="text-danger" *ngIf="imageUrl.errors?.['required']"> required</span> -->
+    </div>
+  </div>
+
+  <input type="button" value="Save" [disabled]="product.invalid" (click)="addproduct(product.value)" [routerLink]="['/product']">
+</form>
+
